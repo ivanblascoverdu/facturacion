@@ -66,8 +66,8 @@ export default function AppointmentsPage() {
                 title="Agenda de Citas"
                 subtitle={`${stats.scheduled} citas programadas`}
                 action={
-                    <button className="btn btn-primary">
-                        <Plus className="w-5 h-5" />
+                    <button className="btn-action-blue">
+                        <Plus className="w-4 h-4" />
                         Nueva Cita
                     </button>
                 }
@@ -187,7 +187,7 @@ export default function AppointmentsPage() {
                         title="No hay citas"
                         description="No hay citas que mostrar con los filtros actuales"
                         action={
-                            <button className="btn btn-primary">
+                            <button className="btn-action-blue">
                                 <Plus className="w-4 h-4" />
                                 Nueva Cita
                             </button>

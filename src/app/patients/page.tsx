@@ -54,8 +54,8 @@ export default function PatientsPage() {
                 title="Pacientes"
                 subtitle={`${patients.length} pacientes registrados`}
                 action={
-                    <button onClick={() => setShowModal(true)} className="btn btn-primary">
-                        <Plus className="w-5 h-5" />
+                    <button onClick={() => setShowModal(true)} className="btn-action-blue">
+                        <Plus className="w-4 h-4" />
                         Nuevo Paciente
                     </button>
                 }
@@ -153,8 +153,9 @@ export default function PatientsPage() {
                         title="No hay pacientes"
                         description="Añade tu primer paciente para empezar a gestionar tu clínica"
                         action={
-                            <button onClick={() => setShowModal(true)} className="btn btn-primary">
-                                Añadir paciente
+                            <button onClick={() => setShowModal(true)} className="btn-action-blue">
+                                <Plus className="w-4 h-4" />
+                                Añadir Paciente
                             </button>
                         }
                     />

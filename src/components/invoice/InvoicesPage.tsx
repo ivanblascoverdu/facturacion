@@ -77,20 +77,15 @@ export function InvoicesPage() {
         <div className="space-y-8 md:space-y-10">
             {/* Header - improved layout with better responsive */}
             <section className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
-                <div className="space-y-1">
+                <div className="space-y-1 min-w-0">
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Facturación</h1>
                     <p className="text-sm md:text-base text-gray-500">
                         {stats.total} facturas • <span className="text-yellow-600 font-medium">{stats.pendingAmount.toLocaleString('es-ES')}€ pendientes</span>
                     </p>
                 </div>
-                <Link
-                    href="/invoices/new"
-                    className="group inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white font-bold text-sm sm:text-base rounded-2xl shadow-xl shadow-green-500/40 hover:shadow-green-500/60 hover:scale-[1.03] active:scale-100 transition-all duration-200 whitespace-nowrap ring-2 ring-white/20"
-                >
-                    <span className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 bg-white/20 rounded-lg group-hover:bg-white/30 transition-colors">
-                        <FileText className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </span>
-                    <span>Nueva Factura</span>
+                <Link href="/invoices/new" className="btn-invoice flex-shrink-0">
+                    <FileText className="w-4 h-4" />
+                    Nueva Factura
                 </Link>
             </section>
 

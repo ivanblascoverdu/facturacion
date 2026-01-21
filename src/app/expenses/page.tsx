@@ -91,8 +91,8 @@ export default function ExpensesPage() {
                 title="Gastos"
                 subtitle={`Total: ${totalExpenses.toLocaleString('es-ES')}€ este mes`}
                 action={
-                    <button onClick={() => setShowModal(true)} className="btn btn-primary">
-                        <Plus className="w-5 h-5" />
+                    <button onClick={() => setShowModal(true)} className="btn-action-blue">
+                        <Plus className="w-4 h-4" />
                         Nuevo Gasto
                     </button>
                 }
@@ -183,8 +183,9 @@ export default function ExpensesPage() {
                         title="No hay gastos"
                         description="Añade tu primer gasto para empezar a controlar tus finanzas"
                         action={
-                            <button onClick={() => setShowModal(true)} className="btn btn-primary">
-                                Añadir gasto
+                            <button onClick={() => setShowModal(true)} className="btn-action-blue">
+                                <Plus className="w-4 h-4" />
+                                Añadir Gasto
                             </button>
                         }
                     />

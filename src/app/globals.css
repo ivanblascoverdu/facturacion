@@ -331,9 +331,44 @@ h6 {
 @media (max-width: 640px) {
 
   .btn-invoice,
-  .btn-collect {
+  .btn-collect,
+  .btn-action-blue {
     width: 100%;
     padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Botón Acción Azul - Para citas, pacientes, etc */
+.btn-action-blue {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 4px 15px -3px rgba(59, 130, 246, 0.4);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-action-blue:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -3px rgba(59, 130, 246, 0.5);
+}
+
+@media (max-width: 1200px) {
+  .btn-action-blue {
+    padding: 0.625rem 1rem;
     font-size: 0.75rem;
   }
 }
