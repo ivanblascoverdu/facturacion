@@ -47,8 +47,8 @@ export function Dashboard() {
     return (
         <div className="space-y-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                <div className="min-w-0">
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
                         Buenos días 👋
                     </h1>
@@ -61,14 +61,14 @@ export function Dashboard() {
                     </p>
                 </div>
 
-                {/* Action buttons */}
-                <div className="flex gap-3">
-                    <Link href="/invoices/new" className="btn-invoice animate-pulse-hover">
-                        <FileText className="w-5 h-5" />
+                {/* Action buttons - responsive layout */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-shrink-0">
+                    <Link href="/invoices/new" className="btn-invoice">
+                        <FileText className="w-4 h-4" />
                         Generar Factura
                     </Link>
-                    <Link href="/invoices?filter=pending" className="btn-collect animate-pulse-hover">
-                        <Send className="w-5 h-5" />
+                    <Link href="/invoices?filter=pending" className="btn-collect">
+                        <Send className="w-4 h-4" />
                         Cobrar Pendientes
                     </Link>
                 </div>

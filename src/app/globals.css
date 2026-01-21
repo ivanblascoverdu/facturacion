@@ -239,40 +239,103 @@ h6 {
   border-color: var(--gray-300);
 }
 
-/* Botón gordo rojo para facturar */
+/* ============================================
+   BOTONES DE ACCIÓN PRINCIPALES
+   Diseño simétrico y consistente
+   ============================================ */
+
+/* Base para botones de acción principales */
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Botón Generar Factura - Rojo */
 .btn-invoice {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
   background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: white;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: var(--radius-xl);
-  box-shadow: 0 8px 25px -5px rgba(239, 68, 68, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px -3px rgba(239, 68, 68, 0.4);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
 .btn-invoice:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 35px -5px rgba(239, 68, 68, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -3px rgba(239, 68, 68, 0.5);
 }
 
-/* Botón verde cobrar */
+/* Botón Cobrar Pendientes - Verde */
 .btn-collect {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: var(--radius-xl);
-  box-shadow: 0 8px 25px -5px rgba(16, 185, 129, 0.5);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px -3px rgba(16, 185, 129, 0.4);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
 .btn-collect:hover:not(:disabled) {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 35px -5px rgba(16, 185, 129, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -3px rgba(16, 185, 129, 0.5);
+}
+
+/* Responsive: hacerlos más pequeños en tablets */
+@media (max-width: 1200px) {
+
+  .btn-invoice,
+  .btn-collect {
+    padding: 0.625rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Responsive: en móvil se apilan */
+@media (max-width: 640px) {
+
+  .btn-invoice,
+  .btn-collect {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* Inputs */
