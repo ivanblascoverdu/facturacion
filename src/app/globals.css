@@ -744,14 +744,35 @@ tr:hover td {
 @media (max-width: 1024px) {
   .sidebar {
     transform: translateX(-100%);
+    z-index: 100;
   }
 
   .sidebar.open {
     transform: translateX(0);
   }
+
+  /* Overlay cuando el sidebar está abierto */
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 90;
+  }
+
+  .sidebar-overlay.visible {
+    display: block;
+  }
+
+  /* Main wrapper no necesita margen en móvil */
+  .main-wrapper {
+    margin-left: 0 !important;
+  }
 }
 
 @media (max-width: 768px) {
+
+  /* Cards más compactas */
   .card {
     border-radius: var(--radius-lg);
   }
@@ -760,12 +781,93 @@ tr:hover td {
     padding: 1rem;
   }
 
-  /* Responsive buttons - stack on mobile */
+  /* Botones de acción full width y bien espaciados */
   .btn-invoice,
-  .btn-collect {
+  .btn-collect,
+  .btn-action-blue {
     width: 100%;
     padding: 0.875rem 1rem;
     font-size: 0.875rem;
+    justify-content: center;
+  }
+
+  /* Mejorar modales en móvil */
+  .modal {
+    width: 95%;
+    max-width: 100%;
+    margin: 1rem;
+    max-height: 90vh;
+  }
+
+  .modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+
+  /* Headers de sección más compactos */
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  /* Tablas scroll horizontal */
+  .table-container {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    min-width: 600px;
+  }
+
+  /* Inputs touch-friendly */
+  .input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Prevenir zoom en iOS */
+    min-height: 48px;
+  }
+
+  /* Botones más grandes para touch */
+  .btn {
+    min-height: 44px;
+  }
+
+  /* Espaciado general más compacto */
+  .space-y-6>*+* {
+    margin-top: 1rem;
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+
+  /* Padding reducido */
+  .card {
+    padding: 1rem;
+  }
+
+  /* Grid de stats en una sola columna */
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Textos más pequeños */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Botones de acción apilados verticalmente */
+  .btn-invoice,
+  .btn-collect,
+  .btn-action-blue {
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
   }
 }
 
