@@ -38,8 +38,6 @@ export function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isHelpOpen, setIsHelpOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const [showTip, setShowTip] = useState(false);
-    const [currentTip, setCurrentTip] = useState(0);
     const searchInputRef = useRef<HTMLInputElement>(null);
     const router = useRouter();
 
@@ -66,24 +64,6 @@ export function Header() {
             searchInputRef.current.focus();
         }
     }, [isSearchOpen]);
-
-    // Mostrar tip al cargar primera vez
-    useEffect(() => {
-        const hasSeenTips = localStorage.getItem('hasSeenTips');
-        if (!hasSeenTips) {
-            setTimeout(() => setShowTip(true), 2000);
-        }
-    }, []);
-
-    const dismissTip = () => {
-        setShowTip(false);
-        if (currentTip < helpTips.length - 1) {
-            setCurrentTip(prev => prev + 1);
-            setTimeout(() => setShowTip(true), 500);
-        } else {
-            localStorage.setItem('hasSeenTips', 'true');
-        }
-    };
 
     const filteredActions = quickActions.filter(action =>
         action.label.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -345,35 +325,7 @@ export function Header() {
                 </div>
             )}
 
-            {/* Floating Tip */}
-            {showTip && (
-                <div className="fixed bottom-6 right-6 z-50 max-w-sm animate-slide-in">
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
-                        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2 flex items-center justify-between">
-                            <span className="text-white text-sm font-medium flex items-center gap-2">
-                                <Sparkles className="w-4 h-4" />
-                                Tip del día ({currentTip + 1}/{helpTips.length})
-                            </span>
-                            <button onClick={dismissTip} className="text-white/80 hover:text-white">
-                                <X className="w-4 h-4" />
-                            </button>
-                        </div>
-                        <div className="p-4">
-                            <p className="font-medium text-gray-900 flex items-center gap-2">
-                                <span className="text-xl">{helpTips[currentTip].icon}</span>
-                                {helpTips[currentTip].title}
-                            </p>
-                            <p className="text-sm text-gray-500 mt-1">{helpTips[currentTip].description}</p>
-                            <button
-                                onClick={dismissTip}
-                                className="mt-3 text-sm text-blue-600 font-medium hover:underline"
-                            >
-                                {currentTip < helpTips.length - 1 ? 'Siguiente tip →' : 'Entendido ✓'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
+
         </>
     );
 }
